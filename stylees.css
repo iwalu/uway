@@ -1,0 +1,277 @@
+/**
+ * @license
+ * Copyright 2019 Google LLC. All Rights Reserved.
+ * SPDX-License-Identifier: Apache-2.0
+ */
+/* Optional: Makes the sample page fill the window. */
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.cards-container {
+  background-color: #f2f2F5;
+  border-radius: 28px;
+  padding: 2rem;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  height: 40%;
+  overflow-y: scroll;
+}
+
+.cards-container h1 {
+  font-size: 20px;
+  color: #566C75;
+}
+
+.card {
+  padding: 1rem;
+  background-color: #fff;
+  /* width: 305px; */
+  border-radius: 16px;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.card:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  .cards {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .card:not(:last-child) {
+    margin-bottom: 0;
+  }
+}
+
+.card img {
+  border-radius: 16px;
+  width: 90px;
+  aspect-ratio: 1/1;
+}
+
+.card-content {
+  overflow: hidden;
+}
+
+.card-content input {
+  appearance: none;
+  display: none;
+}
+
+.card h2 {
+  font-size: 16px;
+  color: #566C75;
+  margin-bottom: 0;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card p {
+  font-size: 12px;
+  color: #6B7E86;
+  margin: 6px 0;
+}
+
+.destination-btn {
+  /* appearance: none; */
+  display: inline-block;
+  padding: 8px 24px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0px 4px 4px rgba(48, 189, 244, 0.1);
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 24px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0px 4px 4px rgba(48, 189, 244, 0.1);
+}
+
+.btn--blue {
+  color: #fff;
+  background-color: #30BDF4;
+}
+
+#container {
+  height: 100%;
+  /* display: flex; */
+}
+
+#sidebar {
+  flex-basis: 15rem;
+  flex-grow: 1;
+  padding: 1rem;
+  max-width: 30rem;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: auto;
+   /*display: none;*/
+}
+
+.warnbox-content {
+  display: none;
+}
+
+#map {
+  flex-basis: 0;
+  flex-grow: 4;
+  height: 100%;
+}
+
+#floating-panel {
+  position: absolute;
+  top: 10px;
+  left: 25%;
+  z-index: 5;
+  background-color: #fff;
+  padding: 5px;
+  border: 1px solid #999;
+  text-align: center;
+  font-family: "Roboto", "sans-serif";
+  line-height: 30px;
+  padding-left: 10px;
+}
+
+#floating-panel {
+  background-color: #fff;
+  border: 0;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
+  margin: 10px;
+  padding: 0 0.5em;
+  font: 400 18px Roboto, Arial, sans-serif;
+  overflow: hidden;
+  padding: 5px;
+  font-size: 14px;
+  text-align: center;
+  line-height: 30px;
+  height: auto;
+}
+#walk{
+  position: absolute;
+  top: 70px;
+  left: 40%;
+  z-index: 5;
+  background-color: #fff;
+  padding: 5px;
+  border: 1px solid #999;
+  text-align: center;
+  font-family: "Roboto", "sans-serif";
+  line-height: 30px;
+  padding-left: 10px;
+}
+#map {
+  flex: auto;
+}
+
+#sidebar {
+  /*flex: 0 1 auto;
+  padding: 0;
+  top: 0;*/
+  position: fixed;
+  top: 0;
+  width: 40px;
+  height: 100%;
+  background-color: #f2f2F5;
+  right: 0px;
+  padding: 2px;
+}
+#sidebar > div {
+  padding: 0.5rem;
+}
+
+/*#sidebar {
+  position: fixed;
+  right: 0;
+  width: 255px;
+  height: 100%;
+  background-color: #f2f2F5;
+ 
+  transition: all .5s ease;
+}
+*/
+
+
+@media screen and (max-width: 992px){
+
+#sidebar {
+  position: fixed;
+  right: 40px;
+  width: 70px;
+  height: 100%;
+  background-color: #f2f2F5;
+ 
+  transition: all .5s ease;
+}
+
+/* #check{
+  display: none;
+}
+
+label #nb,label #annuler{
+  position: absolute;
+  cursor:pointer;
+  background-color: #F9F9F9;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+}
+
+label #nb{
+  left: 312px;
+  top: 260px;
+  font-size: 35px;
+  color: #30BDF4;
+  padding: 6px 12px ;
+  transition: all .5s;
+}
+
+label #annuler{
+  z-index: 1111;
+  left: -595px;
+  top:17px ;
+  font-size: 30px;
+  color: #30BDF4;
+  padding: 4px 9px;
+  transition: all .5s ease;
+}
+
+#check:checked ~ .sidebar{
+
+  right: 0;
+
+}
+
+#check:checked ~ label #nb{
+  right: 250px; 
+  opacity: 0;
+  pointer-events: none;
+
+}
+
+#check:checked ~ label #annuler{
+  left: 595px;
+}*/
+ 
+}
